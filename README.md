@@ -22,11 +22,22 @@
 
 ## 🎬 The situation
 
-<p align="center"><img src="assets/gifs/situation.gif" width="300" alt="Animation: 17:00 Friday"></p>
+<p align="center"><img src="assets/gifs/situation.gif" width="300" alt="Containers in different states: running, exited, restarting"></p>
 
-Friday, 17:00. A colleague who left last week had a dev box where they ran the pieces of the polls application (database, website, a worker) as Docker containers. Nobody wrote anything down. The staging smoke test is red, the box fan is screaming, and you are the only one still in the office.
+```text
+TRIAGE BOARD - the shared dev box              17:00, you are the only one left
+-------------------------------------------------------------------------------
+BED            ARRIVED AS             FIRST IMPRESSION
+fa-db          "it was running"       ?
+fa-web         "it was running"       ?
+fa-crashloop   "keeps coming back"    ?
+fa-chatty      "very loud"            fan screaming
+(two more beds, not on the board: nobody knows what they hold)
+-------------------------------------------------------------------------------
+Rule of the ward: examine before you treat.
+```
 
-You will not read any code. You have the Docker CLI, a box full of containers in all kinds of states, and one rule: **find out before you fix**.
+A colleague who left last week ran the pieces of the polls application on this box as Docker containers, and wrote nothing down. The staging smoke test is red. You will not read any code: you have the Docker CLI, a ward full of containers in different states, and one rule: **find out before you fix**.
 
 > [!IMPORTANT]
 > **Your mission**
@@ -39,7 +50,7 @@ You will not read any code. You have the Docker CLI, a box full of containers in
 
 <p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
-## Part 0 - Set the scene
+## Admission - Set the scene
 
 Fork this repository, clone your fork, and run:
 
@@ -51,7 +62,7 @@ It pulls a few small images and starts the broken containers, all named `fa-...`
 
 <p align="center"><img src="assets/divider.svg" alt="" width="100%"></p>
 
-## Part 1 - Recon (look before you touch)
+## Part 1 - Examine (look before you touch)
 
 <p align="center"><img src="assets/gifs/recon.gif" width="300" alt="Animation: docker ps -a"></p>
 

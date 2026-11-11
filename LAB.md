@@ -2,9 +2,20 @@
 
 ## The situation
 
-Friday, 17:00. A colleague who left last week had a dev box where they ran the pieces of the polls application (database, website, a worker) as Docker containers. Nobody wrote anything down. The staging smoke test is red, the box fan is screaming, and you are the only one still in the office.
+```text
+TRIAGE BOARD - the shared dev box              17:00, you are the only one left
+-------------------------------------------------------------------------------
+BED            ARRIVED AS             FIRST IMPRESSION
+fa-db          "it was running"       ?
+fa-web         "it was running"       ?
+fa-crashloop   "keeps coming back"    ?
+fa-chatty      "very loud"            fan screaming
+(two more beds, not on the board: nobody knows what they hold)
+-------------------------------------------------------------------------------
+Rule of the ward: examine before you treat.
+```
 
-You will not read any code. You have the Docker CLI, a box full of containers in all kinds of states, and one rule: **find out before you fix**.
+A colleague who left last week ran the pieces of the polls application on this box as Docker containers, and wrote nothing down. The staging smoke test is red. You will not read any code: you have the Docker CLI, a ward full of containers in different states, and one rule: **find out before you fix**.
 
 > **Your mission**
 > - Look at the box and work out what is wrong with each `fa-` container, from evidence only
@@ -16,7 +27,7 @@ You will not read any code. You have the Docker CLI, a box full of containers in
 
 ---
 
-## Part 0 - Set the scene
+## Admission - Set the scene
 
 Fork this repository, clone your fork, and run:
 
@@ -28,7 +39,7 @@ It pulls a few small images and starts the broken containers, all named `fa-...`
 
 ---
 
-## Part 1 - Recon (look before you touch)
+## Part 1 - Examine (look before you touch)
 
 Do not change anything yet. Answer from what you see.
 
